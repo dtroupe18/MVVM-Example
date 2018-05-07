@@ -11,7 +11,7 @@ import Foundation
 // If you want to use Codable then each piece of the JSON has be to decoable into its own struct
 // This makes for a lot more code than we really need in this simple example
 //
-struct Welcome: Codable {
+struct Response: Codable {
     let feed: Feed
 }
 

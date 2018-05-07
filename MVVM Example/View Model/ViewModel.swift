@@ -14,17 +14,25 @@ class ViewModel: NSObject {
     
     // ViewModel owns the data Model - in this case the model is a built in dataType not a custom class or struct
     //
-    var apps: [Result]?
+    var apps: [App]?
+    var results: [Result]?
     
     // ViewModel fetching all of the data
     //
     func getApps(completion: @escaping () -> ()) {
-        iTunesAPI.fetchTop100Apps(completion: { (arrayOfAppDict) in
+        iTunesAPI.fetchTop100Apps(completion: { (results) in
             DispatchQueue.main.async {
-                self.apps = arrayOfAppDict
+                self.results = results
                 completion()
             }
         })
+        
+//        iTunesAPI.fetchTop25Apps(completion: { (apps) in
+//            DispatchQueue.main.async {
+//                self.apps = apps
+//                completion()
+//            }
+//        })
     }
     
     // Methods to help the view display the data in the ViewModel
@@ -34,14 +42,26 @@ class ViewModel: NSObject {
     }
     
     func numberOfItemsToDisplay(in section: Int) -> Int {
-        return apps?.count ?? 0
+        if apps != nil {
+            return apps!.count
+        } else {
+            return results?.count ?? 0
+        }
     }
     
     func appTitleToDisplay(for indexPath: IndexPath) -> String {
-        return apps?[indexPath.row].name ?? ""
+        if apps != nil {
+            return apps?[indexPath.row].name ?? ""
+        } else {
+            return results?[indexPath.row].name ?? ""
+        }
     }
     
     func appReleaseDataToDisplay(for indexPath: IndexPath) -> String {
-        return apps?[indexPath.row].releaseDate ?? ""
+        if apps != nil {
+            return apps?[indexPath.row].releaseDate ?? ""
+        } else {
+            return results?[indexPath.row].releaseDate ?? ""
+        }
     }
 }

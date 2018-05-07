@@ -10,8 +10,11 @@ import Foundation
 
 class iTunesAPI {
     
+    // Fetch top 100 apps on the app store right now. This API call uses the Codable protocol to process the entire
+    // response into a Response struct
+    //
     static func fetchTop100Apps(completion: @escaping ([Result]?) ->()) {
-        print("fetch called")
+        
         guard let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/100/explicit.json") else {
             print("Error creating URL")
             return
@@ -23,7 +26,7 @@ class iTunesAPI {
             guard let unwrappedData = data else { print("Error getting data"); return }
             
             do {
-                let welcome = try JSONDecoder().decode(Welcome.self, from: unwrappedData)
+                let welcome = try JSONDecoder().decode(Response.self, from: unwrappedData)
                 completion(welcome.feed.results)
             } catch {
                 completion(nil)
@@ -34,7 +37,10 @@ class iTunesAPI {
         dataTask.resume()
     }
     
+    // This api call get the top 25 apps currently on the app store and does not use the codable protocol
+    //
     static func fetchTop25Apps(completion: @escaping ([App]?) ->()) {
+        print("fetch 25 called")
         guard let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/25/explicit.json") else {
             print("Error creating URL")
             return
@@ -44,8 +50,21 @@ class iTunesAPI {
         let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let data = data { 
                 do {
-                    let welcome = try JSONDecoder().decode(Welcome.self, from: data)
-                    completion(welcome.feed.results)
+                    if let fullResponse = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary {
+                        print("full response is good")
+                        
+                        if let apps = fullResponse.value(forKeyPath: "feed.results") as? [NSDictionary] {
+                            // convert each array entry into an App struct
+                            //
+                            var topApps: [App] = [App]()
+                            for app in apps {
+                                if let currentApp = App(dict: app) {
+                                    topApps.append(currentApp)
+                                }
+                            }
+                            completion(topApps)
+                        }
+                    }
                 } catch {
                     completion(nil)
                     print("Error getting data from API: \(error.localizedDescription)")
