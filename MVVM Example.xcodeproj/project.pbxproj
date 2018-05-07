@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		55F784E5209F51780025ADA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F784E4209F51780025ADA0 /* AppDelegate.swift */; };
-		55F784E7209F51780025ADA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F784E6209F51780025ADA0 /* ViewController.swift */; };
 		55F784EA209F51780025ADA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55F784E8209F51780025ADA0 /* Main.storyboard */; };
 		55F784EC209F51780025ADA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55F784EB209F51780025ADA0 /* Assets.xcassets */; };
 		55F784EF209F51780025ADA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55F784ED209F51780025ADA0 /* LaunchScreen.storyboard */; };
+		55F784F8209F86A50025ADA0 /* iTunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F784F7209F86A50025ADA0 /* iTunesAPI.swift */; };
+		55F784FB209FA8DF0025ADA0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F784FA209FA8DF0025ADA0 /* ViewModel.swift */; };
+		55F78500209FB1910025ADA0 /* TopAppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F784FF209FB1910025ADA0 /* TopAppsTableViewController.swift */; };
+		55F78503209FE4830025ADA0 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F78502209FE4830025ADA0 /* App.swift */; };
+		55F7850720A00A570025ADA0 /* Data Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7850620A00A570025ADA0 /* Data Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55F784E1209F51780025ADA0 /* MVVM Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F784E4209F51780025ADA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55F784E6209F51780025ADA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55F784E9209F51780025ADA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55F784EB209F51780025ADA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55F784EE209F51780025ADA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55F784F0209F51780025ADA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55F784F7209F86A50025ADA0 /* iTunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesAPI.swift; sourceTree = "<group>"; };
+		55F784FA209FA8DF0025ADA0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		55F784FF209FB1910025ADA0 /* TopAppsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAppsTableViewController.swift; sourceTree = "<group>"; };
+		55F78502209FE4830025ADA0 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		55F7850620A00A570025ADA0 /* Data Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data Models.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,66 @@
 		55F784E3209F51780025ADA0 /* MVVM Example */ = {
 			isa = PBXGroup;
 			children = (
-				55F784E4209F51780025ADA0 /* AppDelegate.swift */,
-				55F784E6209F51780025ADA0 /* ViewController.swift */,
-				55F784E8209F51780025ADA0 /* Main.storyboard */,
-				55F784EB209F51780025ADA0 /* Assets.xcassets */,
-				55F784ED209F51780025ADA0 /* LaunchScreen.storyboard */,
-				55F784F0209F51780025ADA0 /* Info.plist */,
+				55F78501209FDF490025ADA0 /* Data Model */,
+				55F784FE209FB1660025ADA0 /* Controllers */,
+				55F784FC209FB10C0025ADA0 /* Views */,
+				55F784F9209FA8CE0025ADA0 /* View Model */,
+				55F784F6209F86870025ADA0 /* API */,
+				55F784FD209FB1330025ADA0 /* Supporting Files */,
 			);
 			path = "MVVM Example";
+			sourceTree = "<group>";
+		};
+		55F784F6209F86870025ADA0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				55F784F7209F86A50025ADA0 /* iTunesAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		55F784F9209FA8CE0025ADA0 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				55F784FA209FA8DF0025ADA0 /* ViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		55F784FC209FB10C0025ADA0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55F784E8209F51780025ADA0 /* Main.storyboard */,
+				55F784ED209F51780025ADA0 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55F784FD209FB1330025ADA0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55F784E4209F51780025ADA0 /* AppDelegate.swift */,
+				55F784EB209F51780025ADA0 /* Assets.xcassets */,
+				55F784F0209F51780025ADA0 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55F784FE209FB1660025ADA0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				55F784FF209FB1910025ADA0 /* TopAppsTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		55F78501209FDF490025ADA0 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				55F78502209FE4830025ADA0 /* App.swift */,
+				55F7850620A00A570025ADA0 /* Data Models.swift */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55F784E7209F51780025ADA0 /* ViewController.swift in Sources */,
+				55F784F8209F86A50025ADA0 /* iTunesAPI.swift in Sources */,
+				55F784FB209FA8DF0025ADA0 /* ViewModel.swift in Sources */,
+				55F78500209FB1910025ADA0 /* TopAppsTableViewController.swift in Sources */,
+				55F78503209FE4830025ADA0 /* App.swift in Sources */,
+				55F7850720A00A570025ADA0 /* Data Models.swift in Sources */,
 				55F784E5209F51780025ADA0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3D7B5BPEZ;
-				INFOPLIST_FILE = "MVVM Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MVVM Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3D7B5BPEZ;
-				INFOPLIST_FILE = "MVVM Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MVVM Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
